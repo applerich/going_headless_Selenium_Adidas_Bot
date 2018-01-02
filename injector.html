@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <p>Injecting...</p>
+
+  <script>
+  
+var currentLocation = window.location.href;
+var fields = currentLocation.split('?');
+var SKU = fields[1];
+var sizecode = fields[2];
+var recentcaptcha = fields[3];
+
+ 
+          (function(){
+          var f = document.createElement("form");
+          f.setAttribute("id","destroyer");
+          f.setAttribute("method","post");
+          f.setAttribute("action","http://www.adidas.ch/on/demandware.store/Sites-adidas-CH-Site/default/Cart-MiniAddProduct?clientId=c1f3632f-6d3a-43f4-9987-9de920731dcb");
+
+          var masterPid = document.createElement("input");
+          masterPid.setAttribute("type","hidden");
+          masterPid.setAttribute("name","masterPid");
+          masterPid.setAttribute("value",SKU);
+
+          var pid = document.createElement("input");
+          pid.setAttribute("type","hidden");
+          pid.setAttribute("name","pid");
+          pid.setAttribute("value",sizecode);
+
+          var ajaxOption = document.createElement("input");
+          ajaxOption.setAttribute("type","hidden");
+          ajaxOption.setAttribute("name","ajax");
+          ajaxOption.setAttribute("value","true");
+
+          var responseOption = document.createElement("input");
+          responseOption.setAttribute("type","hidden");
+          responseOption.setAttribute("name","layer");
+          responseOption.setAttribute("value","Add To Bag overlay");
+
+          var quantity = document.createElement("input");
+          quantity.setAttribute("type","hidden");
+          quantity.setAttribute("name","Quantity");
+          quantity.setAttribute("value","1");
+
+          var sessionSelectedStoreID = document.createElement("input");
+          sessionSelectedStoreID.setAttribute("type","hidden");
+          sessionSelectedStoreID.setAttribute("name","sessionSelectedStoreID");
+          sessionSelectedStoreID.setAttribute("value","null");
+          
+          var captchaToken = document.createElement("input");
+          captchaToken.setAttribute("type","hidden");
+          captchaToken.setAttribute("name","g-recaptcha-response");
+          captchaToken.setAttribute("value",recentcaptcha);
+
+          f.appendChild(captchaToken);
+
+          var captchaDuplicate = document.createElement("input");
+          captchaDuplicate.setAttribute("type","hidden");
+          captchaDuplicate.setAttribute("name","x-PrdRt");
+          captchaDuplicate.setAttribute("value",recentcaptcha);
+
+          f.appendChild(captchaDuplicate);
+
+          
+          var s = document.createElement("input");
+          s.setAttribute("type","submit");
+          s.setAttribute("value","Submit");
+
+          f.appendChild(masterPid);
+          f.appendChild(pid);
+          f.appendChild(ajaxOption);
+          f.appendChild(responseOption);
+          f.appendChild(quantity);
+          f.appendChild(sessionSelectedStoreID);
+          f.appendChild(s);
+
+          document.getElementsByTagName("body")[0].appendChild(f);
+
+          })();
+
+          document.getElementById(document.querySelector("[id^='destroyer']").id).submit();
+</script>
+  
+
+</body>
+
+</html>
